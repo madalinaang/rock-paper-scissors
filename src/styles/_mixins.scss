@@ -1,0 +1,16 @@
+@mixin small {
+  @media only screen and (max-width: $sm) {
+    @content;
+  }
+}
+
+@mixin token-color($color-start, $color-end) {
+  background-image: linear-gradient(to top, $color-start, $color-end);
+  box-shadow: 0 0.4rem 0.05rem 0 darken($color-start, 15%),
+    0 0.5rem 0.5rem 0 rgba(0, 0, 0, 0.3);
+}
+
+@mixin font-uppercase {
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+}

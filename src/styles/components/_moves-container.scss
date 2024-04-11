@@ -1,0 +1,12 @@
+.moves-container {
+  position: relative;
+  width: fit-content;
+
+  @include small {
+    width: 70%;
+
+    .pentagon {
+      width: 100%;
+    }
+  }
+}

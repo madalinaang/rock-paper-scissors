@@ -1,0 +1,93 @@
+.token {
+  width: fit-content;
+  position: absolute;
+
+  img {
+    height: 3rem;
+
+    @include small {
+      height: 2.5rem;
+    }
+  }
+
+  .white {
+    background-color: white;
+    width: 6.5rem;
+    height: 6.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0 0.9rem 0.05rem -0.5rem rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    @include small {
+      width: 5rem;
+      height: 5rem;
+    }
+  }
+
+  .color {
+    width: 8.5rem;
+    height: 8.5rem;
+    border-radius: 50%;
+
+    @include small {
+      width: 6.5rem;
+      height: 6.5rem;
+    }
+  }
+
+  &.rock {
+    top: 100%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+
+    .color {
+      @include token-color($rock-red-start, $rock-red-end);
+    }
+  }
+
+  &.paper {
+    top: 37%;
+    left: 100%;
+    transform: translate(-50%, -50%);
+
+    .color {
+      @include token-color($paper-blue-start, $paper-blue-end);
+    }
+  }
+
+  &.scissors {
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    .color {
+      @include token-color($scissors-yellow-start, $scissors-yellow-end);
+    }
+  }
+
+  &.lizard {
+    top: 100%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+
+    .color {
+      @include token-color($lizard-purple-start, $lizard-purple-end);
+    }
+  }
+
+  &.spock {
+    top: 37%;
+    left: 0;
+    transform: translate(-50%, -50%);
+
+    .color {
+      @include token-color($spock-cyan-start, $spock-cyan-end);
+    }
+  }
+}

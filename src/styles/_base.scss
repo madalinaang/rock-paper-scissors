@@ -1,0 +1,11 @@
+body {
+  font-family: $font-barlow;
+  font-size: $font-size;
+  font-weight: $font-weight-semi-bold;
+  height: 100vh;
+  background-image: radial-gradient(
+    circle at center top,
+    $background-navy-start,
+    $background-navy-end
+  );
+}

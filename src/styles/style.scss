@@ -1,0 +1,10 @@
+@import "./resets";
+@import "./variables";
+@import "./base";
+@import "./mixins";
+
+@import "./components/token";
+@import "./components/moves-container";
+@import "./components/game";
+@import "./components/header";
+@import "./components/rules";
