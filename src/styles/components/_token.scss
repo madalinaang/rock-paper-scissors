@@ -2,18 +2,22 @@
   width: fit-content;
   position: absolute;
 
-  img {
-    height: 3rem;
+  width: 8.5rem;
+  height: 8.5rem;
 
-    @include small {
-      height: 2.5rem;
-    }
+  @include small {
+    width: 6.5rem;
+    height: 6.5rem;
+  }
+
+  img {
+    height: 50%;
   }
 
   .white {
     background-color: white;
-    width: 6.5rem;
-    height: 6.5rem;
+    width: 75%;
+    height: 75%;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -25,20 +29,14 @@
     transform: translate(-50%, -50%);
 
     @include small {
-      width: 5rem;
-      height: 5rem;
+      box-shadow: inset 0 0.8rem 0.05rem -0.5rem rgba(0, 0, 0, 0.1);
     }
   }
 
   .color {
-    width: 8.5rem;
-    height: 8.5rem;
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
-
-    @include small {
-      width: 6.5rem;
-      height: 6.5rem;
-    }
   }
 
   &.rock {
@@ -48,6 +46,12 @@
 
     .color {
       @include token-color($rock-red-start, $rock-red-end);
+    }
+
+    &.selected {
+      .color {
+        @include token-color($rock-red-start, $rock-red-end, true);
+      }
     }
   }
 
@@ -59,6 +63,12 @@
     .color {
       @include token-color($paper-blue-start, $paper-blue-end);
     }
+
+    &.selected {
+      .color {
+        @include token-color($paper-blue-start, $paper-blue-end, true);
+      }
+    }
   }
 
   &.scissors {
@@ -68,6 +78,16 @@
 
     .color {
       @include token-color($scissors-yellow-start, $scissors-yellow-end);
+    }
+
+    &.selected {
+      .color {
+        @include token-color(
+          $scissors-yellow-start,
+          $scissors-yellow-end,
+          true
+        );
+      }
     }
   }
 
@@ -79,6 +99,12 @@
     .color {
       @include token-color($lizard-purple-start, $lizard-purple-end);
     }
+
+    &.selected {
+      .color {
+        @include token-color($lizard-purple-start, $lizard-purple-end, true);
+      }
+    }
   }
 
   &.spock {
@@ -88,6 +114,37 @@
 
     .color {
       @include token-color($spock-cyan-start, $spock-cyan-end);
+    }
+
+    &.selected {
+      .color {
+        @include token-color($spock-cyan-start, $spock-cyan-end, true);
+      }
+    }
+  }
+
+  &.selected {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+    width: 15rem;
+    height: 15rem;
+    opacity: 0;
+    transition: opacity 1s ease;
+
+    @include small {
+      width: 7rem;
+      height: 7rem;
+    }
+
+    .white {
+      box-shadow: inset 0 1.1rem 0.05rem -0.5rem rgba(0, 0, 0, 0.1);
+    }
+
+    &.visible {
+      display: block;
+      opacity: 1;
     }
   }
 }

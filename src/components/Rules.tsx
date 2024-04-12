@@ -2,11 +2,12 @@ import React from "react";
 
 interface RulesProps {
   closeModal: () => void;
+  active?: string;
 }
 
-const Rules: React.FC<RulesProps> = ({ closeModal }) => {
+const Rules: React.FC<RulesProps> = ({ closeModal, active }) => {
   return (
-    <section className="rules-modal">
+    <section className={"rules-modal " + active}>
       <div className="top-bar">
         <p>Rules</p>
         <button onClick={closeModal}>

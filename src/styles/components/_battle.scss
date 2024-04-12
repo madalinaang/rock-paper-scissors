@@ -1,0 +1,130 @@
+.battle {
+  display: flex;
+  align-items: center;
+
+  @include small {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .your-move {
+    @include selected-move;
+    transition: margin 1s ease;
+
+    &.visible {
+      margin-right: 5rem;
+
+      @include small {
+        margin: 0;
+      }
+    }
+
+    .player-selection {
+      position: relative;
+
+      .win {
+        @include won-circles;
+      }
+    }
+  }
+
+  .house-move {
+    @include selected-move;
+    transition: margin 1s ease;
+
+    &.visible {
+      margin-left: 5rem;
+
+      @include small {
+        margin: 0;
+      }
+    }
+
+    .token-placeholder {
+      position: relative;
+
+      .placeholder {
+        width: calc(15rem * 75 / 100);
+        height: calc(15rem * 75 / 100);
+        border-radius: 50%;
+        background-color: rgba(0, 0, 0, 0.1);
+        filter: blur(0.05rem);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: -100;
+
+        @include small {
+          width: calc(10rem * 75 / 100);
+          height: calc(10rem * 75 / 100);
+        }
+      }
+
+      .win {
+        @include won-circles;
+      }
+    }
+  }
+
+  .conclusion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    opacity: 0;
+    width: 10rem;
+    overflow: hidden;
+    transition: opacity 1s ease, width 1s ease;
+
+    @include small {
+      position: absolute;
+      bottom: 10rem;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    p {
+      text-transform: uppercase;
+      color: white;
+      font-weight: $font-weight-bold;
+      font-size: 350%;
+
+      @include small {
+        font-size: 250%;
+      }
+    }
+
+    button {
+      @include font-uppercase;
+      color: $background-navy-start;
+      background-color: white;
+      padding: 1rem 0;
+      border-radius: 0.5rem;
+      width: 14rem;
+      text-align: center;
+
+      @include small {
+        width: 10rem;
+      }
+
+      &.win:hover {
+        color: green;
+      }
+
+      &.lose:hover {
+        color: red;
+      }
+
+      &.tie:hover {
+        color: purple;
+      }
+    }
+
+    &.visible {
+      opacity: 1;
+      margin: 0;
+      width: auto;
+    }
+  }
+}
